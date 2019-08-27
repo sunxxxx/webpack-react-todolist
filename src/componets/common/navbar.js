@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import '@css/common.css';
 
 function BasicExample() {
   return (
     <Router>
-      <div>
-        <ul>
+      <div className="navbar">
+        <ul className="nav">
           <li>
             <Link to="/">Home</Link>
           </li>

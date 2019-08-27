@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import '@css/App.css';
 import ListItem from './listItem'
-import Navbar from './navbar'
+import Navbar from '@componets/common/navbar'
 // import { thisExpression } from '@babel/types';
 
 
