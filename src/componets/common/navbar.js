@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import '@css/common.css';
 
 function BasicExample() {
@@ -8,13 +8,13 @@ function BasicExample() {
       <div className="navbar">
         <ul className="nav">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink exact to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <NavLink to="/topics">Topics</NavLink>
           </li>
         </ul>
 

@@ -1,4 +1,21 @@
-.nav{
+.nav {
     display: flex;
+    justify-content: center;
+    list-style: none
+}
 
+.nav li {
+    width: 200px;
+}
+
+.nav li a {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 2;
+    color: #333
+}
+
+.nav li .active{
+    color: #1d3916;
+    border-bottom: 1px solid #1d3916
 }
