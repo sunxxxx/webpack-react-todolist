@@ -5,6 +5,17 @@ import '@css/App.css';
 class Memo extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            addMemo: false
+        }
+    }
+
+    addMemo(){
+        this.setState({addMemo:true})
+    }
+
+    newMemo(){
+        this.setState({addMemo:false})
     }
 
     render(){
@@ -64,8 +75,14 @@ class Memo extends React.Component{
                         </div>
                     </li>
                 ))}
-                <button className="add_memo">Add New Memo</button>
+                <button className="add_memo" onClick={this.addMemo.bind(this)}>Add New Memo</button>
                 </ol>
+                {this.state.addMemo && 
+                    <div className="new_memo">
+                        <input value="add new memo" onChange={this.newMemo.bind(this)} />
+                    </div>
+                }
+               
                 
             </div>
         )

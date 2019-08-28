@@ -4,7 +4,7 @@ import React from 'react';
 class memoInfo extends React.Component{
     constructor(props){
         super(props)
-        console.log(props)
+        console.log(location.pathname.match(/^\/[^\/]*/g)[0].substr(1))
     }
 
     render(){

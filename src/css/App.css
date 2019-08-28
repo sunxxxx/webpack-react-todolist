@@ -107,6 +107,16 @@ hr{
   border: none
 }
 
+.new_memo{
+  width: 500px;
+  height: 400px;
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(50% - 250px);
+  background: #fff;
+  box-shadow: 0 0 10px 0px #ccc;
+}
+
 .item_details{
   overflow: hidden;
   color: #0000006b
