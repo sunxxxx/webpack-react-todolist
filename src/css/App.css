@@ -16,6 +16,10 @@ h1{
   margin: 0
 }
 
+hr{
+  margin: 0
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -31,9 +35,81 @@ h1{
   color: #61dafb;
 }
 
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0
+}
+
+.nav li {
+  width: 200px;
+  text-align: center
+}
+
+.nav li a {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 2;
+  color: #333
+}
+
+.nav li .active{
+  color: #1d3916;
+  border-bottom: 1px solid #1d3916
+}
+
 .container{
   display: flex;
   background-color: #f5f5f5;
+  min-height: calc(100vh - 166px)
+}
+
+.memo_content{
+  width: 100%;
+  padding: 0;
+  margin: 0
+}
+
+.memo_item{
+  padding: 20px 100px
+}
+
+.memo_item h5 a{
+  font-size: 16px;
+  color: #545454;
+  text-decoration: none
+}
+
+.memo_content li:nth-child(even){
+  color: #1d3916;
+  background: #fff
+}
+
+.add_memo{
+  width: 132px;
+  font-size: 16px;
+  line-height: 2;
+  background: #1d3915;
+  color: #fff;
+  border-radius: 6px;
+  position: fixed;
+  left: calc(50% - 66px);
+  bottom: 20px;
+  border: none
+}
+
+.item_details{
+  overflow: hidden;
+  color: #0000006b
 }
 
 .projectBox{
@@ -57,13 +133,14 @@ h1{
 
 .project h5{
   font-size: 20px;
-  line-height: 50px;
+  line-height: 59px;
   border-bottom: 1px solid #ccc;
-  margin: 20px 0;
+  margin: 0 0 20px;
 }
 
 .project li{
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .project li:hover,.project_active{

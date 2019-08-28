@@ -1,7 +1,6 @@
 import React from 'react';
 import '@css/App.css';
 import ListItem from './listItem'
-import Navbar from '@componets/common/navbar'
 // import { thisExpression } from '@babel/types';
 
 
@@ -311,13 +310,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
-        <header>
-          <h1>
-            todos
-          </h1>
-          <Navbar></Navbar>
-        </header>
+      <div className="">
         <div className="container">
             <div className="projectBox">
               <ul className="project">
