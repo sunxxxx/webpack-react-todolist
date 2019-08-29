@@ -40,7 +40,7 @@ function BasicRouter() {
           </ul>
 
           <hr />
-        
+      
           <Route exact path="/" component={All} />
           <Route path="/today" component={Today} />
           <Route exact path="/memo" component={Memo} />

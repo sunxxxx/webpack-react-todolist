@@ -12,7 +12,8 @@ module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),    // 打包输出的目标文件的绝对路径（其中__dirname为当前目录的绝对路径）
-        filename: 'index.js'   // 打包输出的js文件名及相对于dist目录所在路径
+        filename: 'index.js',   // 打包输出的js文件名及相对于dist目录所在路径
+        publicPath: '/'
     },
     resolve:{
         alias:{
@@ -58,12 +59,14 @@ module.exports = {
                             name: '[name][hash].[ext]'
                         }
                     },
-                    //文件大小大于limit，url-loader会调用file-loader进行处理，参数也会直接传给file-loader，url-loader封装了file-loader
+                    // 文件大小大于limit，url-loader会调用file-loader进行处理，参数也会直接传给file-loader，url-loader封装了file-loader
                     // {
                     //     loader: 'file-loader',
-                    //     publicPath: publicPath,
-                    //     outputPath: 'dist/img',
-                    //     useRelativePath: true
+                    //     options:{
+                    //         name: '[name].[ext]',
+                    //         publicPath: '/assets/',
+                    //         outputPath: 'assets/'
+                    //     }
                     // }
                 ]
             }
@@ -73,7 +76,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             title: 'webpack demo',
             filename: 'index.html',
-            // favicon: './src/img',
+            favicon: 'src/img/favicon.ico',
             // chunks: ['commons','index'], //限定加载特定模块
             // excludeChunks:[],  //排除特定模块
             // "files": {
@@ -90,7 +93,7 @@ module.exports = {
                 //   },
                 // }
             // },
-            template:path.resolve(__dirname, './src/index.html'),
+            template:path.resolve(__dirname, './index.html'),
             inject: true, //将js文件插入body的底部
             minify: {
                 caseSensitive:false,  //默认false。是否对大小写敏感，true为大小写敏感，false则大小写不敏感，会全部转为小写

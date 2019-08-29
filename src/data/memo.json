@@ -1,0 +1,16 @@
+{
+    "data":[
+        {
+            "title": "根据本地时间格式，把 Date 对象转换为字符串。",
+            "id": 1,
+            "date": "new Date().toLocaleString()",
+            "method":"new Date().toLocaleString()"
+        },
+        {
+            "title": "根据世界时，把 Date 对象转换为字符串。",
+            "id": 2,
+            "date": "new Date().toUTCString()",
+            "method":"new Date().toUTCString()"
+        }
+    ] 
+}

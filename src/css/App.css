@@ -103,8 +103,9 @@ hr{
   border-radius: 6px;
   position: fixed;
   left: calc(50% - 66px);
-  bottom: 20px;
-  border: none
+  bottom: 50px;
+  border: none;
+  cursor: pointer;
 }
 
 .new_memo{
@@ -125,7 +126,7 @@ hr{
 .projectBox{
   float: left;
   width: 30%;
-  height: calc(100vh - 200px);
+  /* min-height: calc(100vh - 200px); */
   padding: 50px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
@@ -158,15 +159,6 @@ hr{
   background: #fff;  
 }
 
-/* .add_project::before{
-  content: '+';
-  width: 20px;
-  height: 20px;
-  background: #1d3916;
-  display: block;
-  color: #fff
-} */
-
 
 .add_project_input{
   width: 100%;
@@ -192,11 +184,6 @@ hr{
 .add_project_btn:active,.add_project_btn:focus{
   outline: none
 }
-
-
-
-
-
 
 
 .Box{
@@ -363,10 +350,6 @@ footer h3{
   color: #fff;
 }
 
-
-
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -374,4 +357,84 @@ footer h3{
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+/* memoInfo */
+.memoInfo_box{
+  width: 400px;
+  margin: 50px auto;
+  font-size: 16px
+}
+
+.memoInfo_box label{
+  width: 100px;
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #787878;
+  font-size: 14px
+}
+
+.memoInfo_box input{
+  width: 100%;
+  padding: 5px;
+  line-height: 2;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  -webkit-appearance: media-slider;
+}
+
+.editInput{
+  color:#000;
+  width:400px;
+  height:auto;
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 30px
+}
+.editInput:empty:before{
+  content: attr(data-placeholder);
+  color:#a6a6a6;
+}
+.editInput:focus:before{
+  content:none;
+}
+
+/* today */
+.t_bg{
+  background: url(../img/2.png);
+  background-size: 100% 100%;
+  width: 100%;
+  position: relative;
+}
+
+.item_box{
+  padding: 80px 50px
+}
+
+.item_box_show{
+  margin-bottom: 50px
+}
+
+.item_box h5{
+  font-size: 18px;
+  margin: 1em 0
+}
+
+.deadline{
+  color: #545454
+}
+
+.search{
+  width: 320px;
+  font-size: 16px;
+  line-height: 2;
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  border-radius: 4px;
+  border: 1px solid #1d391538;
+  padding-left: 20px
 }

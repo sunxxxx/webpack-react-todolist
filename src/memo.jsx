@@ -2,6 +2,7 @@ import React from 'react';
 import { Route,Link } from "react-router-dom";
 import '@css/App.css';
 
+
 class Memo extends React.Component{
     constructor(props){
         super(props)
@@ -14,9 +15,7 @@ class Memo extends React.Component{
         this.setState({addMemo:true})
     }
 
-    newMemo(){
-        this.setState({addMemo:false})
-    }
+    newMemo(){}
 
     render(){
         const data = [

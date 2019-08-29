@@ -7,7 +7,9 @@ const devWebpackConfig = merge(baseWebpackConfig,{
     devtool: 'cheap-module-eval-source-map',
     devServer:{
         contentBase: "./dist", //本地服务器所加载的页面所在的目录
-        historyApiFallback: true, //不跳转
+        historyApiFallback: {
+            index: path.resolve(__dirname, '/index.html')
+        },
         inline: true, //实时刷新
         port: 3000,
     },
