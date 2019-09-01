@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink,withRouter } from "react-router-dom";
-import All from './all';
+import { BrowserRouter as Router, Route, Switch, NavLink,withRouter,Redirect } from "react-router-dom";
+import { TransitionGroup } from "react-transition-group";
+import Projects from './projects';
 import Today from './today';
 import Memo from './memo';
 import memoInfo from './memoInfo';
+import About from './about';
 
 
 class ScrollToTop extends React.Component {
@@ -15,6 +17,30 @@ class ScrollToTop extends React.Component {
     }
 }
 withRouter(ScrollToTop);
+
+function NotFound({location}) {
+  return (
+    <div className="notfound" style={{}}> 
+      <img src={require('./img/notfound.jpg')} />
+    </div>
+    );
+}
+
+function ComponentWithRegex({ match }) {
+  return (
+    <div>
+      <h3>Only asc/desc are allowed: {match.params.direction}</h3>
+    </div>
+  );
+}
+
+function Test({match}){
+  return(
+    <div>
+      <h2>{match.params.test} is a wrong way</h2>
+    </div>
+  )
+}
 
 function BasicRouter() {
   return (
@@ -29,7 +55,7 @@ function BasicRouter() {
         <div className="navbar">
           <ul className="nav">
             <li>
-              <NavLink exact to="/">All</NavLink>
+              <NavLink exact to="/">Projects</NavLink>
             </li>
             <li>
               <NavLink to="/today">Today</NavLink>
@@ -37,14 +63,31 @@ function BasicRouter() {
             <li>
               <NavLink to="/memo">Memo</NavLink>
             </li>
+            <li>
+              <NavLink to="/notfound">Notfound</NavLink>
+            </li>
+            <li>
+            <NavLink to={{
+                pathname: '/about',
+                search: '?sort=name',
+                hash: '#the-hash'}}>About</NavLink>
+            </li>
           </ul>
 
           <hr />
-      
-          <Route exact path="/" component={All} />
-          <Route path="/today" component={Today} />
-          <Route exact path="/memo" component={Memo} />
-          <Route path={["/memo/:id","/editMemo/:id"]} component={memoInfo} />
+          <TransitionGroup>
+            <Switch>
+              <Route exact path="/" component={Projects} />
+              <Route strict path="/today" component={Today} />
+              <Route exact path="/memo" component={Memo} />
+              <Route path={["/memo/:id","/editMemo/:id"]} component={memoInfo} />
+              <Route path="/about" component={About} />
+              {/* <Route path="/:test" component={Test} /> */}
+              <Route path="/order/:direction(asc|desc)" component={ComponentWithRegex} />
+              <Route path="/notfound" component={NotFound} />
+              <Route component={NotFound} />
+            </Switch>
+          </TransitionGroup>
         </div>
       </Router>
     </ScrollToTop>

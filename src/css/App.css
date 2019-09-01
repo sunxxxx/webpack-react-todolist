@@ -12,7 +12,7 @@ h1{
   font-weight: lighter;
   color:#f0f0f0;
   padding: 20px 0;
-  background-color: #1d3916;
+  background-color: #405f63;
   margin: 0
 }
 
@@ -69,7 +69,7 @@ hr{
 
 .container{
   display: flex;
-  background-color: #f5f5f5;
+  background-color: #d1d8ea29;
   min-height: calc(100vh - 166px)
 }
 
@@ -98,7 +98,7 @@ hr{
   width: 132px;
   font-size: 16px;
   line-height: 2;
-  background: #1d3915;
+  background: #c5959c;
   color: #fff;
   border-radius: 6px;
   position: fixed;
@@ -169,15 +169,16 @@ hr{
 
 .add_project_btn{
   padding: 5px 10px;
-  border:1px solid #1d3916;
-  color: #1d3916;
+  border:1px solid #94b6c2;
+  color: #94b6c2;
   border-radius: 4px;
   transition: all .5s;
   cursor: pointer;
+  background: #fff
 }
 
 .add_project_btn:hover{
-  background: #1d3916;
+  background: #94b6c2;
   color: #fff
 }
 
@@ -246,7 +247,7 @@ hr{
 }
 
 .checked:checked {
-  background:#67945d;
+  background:#94b6c2;
   border: none;
 }
 .checked:focus{
@@ -316,12 +317,12 @@ footer h3{
 
 .btns div:hover {
   border-radius: 4px;
-  background: #a0d095;
+  background: #94b6c2;
   color: #fff;
 }
 
 .activeBtn{
-  background: #a0d095;
+  background: #e0d1d6;
   color: #fff
 }
 
@@ -339,14 +340,15 @@ footer h3{
 .delect_btn{
   line-height: 20px;
   border-radius: 4px;
-  border: 1px solid #a0d095;
+  border: 1px solid #94b6c2;
   margin-left: 20px;
   transition: all .5s;
   cursor: pointer;
+  background: #fff
 }
 
 .delect_btn:hover{
-  background: #a0d095;
+  background: #94b6c2;
   color: #fff;
 }
 
@@ -424,7 +426,7 @@ footer h3{
 }
 
 .deadline{
-  color: #545454
+  color: #969696
 }
 
 .search{
@@ -437,4 +439,26 @@ footer h3{
   border-radius: 4px;
   border: 1px solid #1d391538;
   padding-left: 20px
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
+
+.notfound{
+  background: #f1f1f1;
+  text-align: center;
+  height: calc(100vh - 166px);
+}
+
+.notfound img{
+  width: 800px;
+  position: relative;
+  top: calc(50% - 200px)
 }
