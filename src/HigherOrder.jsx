@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
  
-function withPersistentData(WrappedComponent) {
+function withPersistentData = (key) => (WrappedComponent) => {
   return class extends Component {
-      constructor(props){
-          super(props);
-          this.state = {
-              data:'data'
-          }
-      }
+
+    
     componentWillMount() {
-    //   let data = localStorage.getItem('data');
-        // this.setState({data});
-        console.log(this.state.data)
+      let data = localStorage.getItem(key);
+        this.setState({data});
     }
  
     render() {
@@ -25,8 +20,20 @@ class MyComponent2 extends Component {
   render() {
     return <div>{this.props.data}</div>
   }
+ 
+  //省略其他逻辑...
 }
  
-const MyComponentWithPersistentData = withPersistentData(MyComponent2)
+class MyComponent3 extends Component {  
+  render() {
+    return <div>{this.props.data}</div>
+  }
+ 
+  //省略其他逻辑...
+}
+ 
+const MyComponent2WithPersistentData = withPersistentData('data')(MyComponent2);
+const MyComponent3WithPersistentData = withPersistentData('name')(MyComponent3);
 
-export default MyComponentWithPersistentData;
+
+export default MyComponent3WithPersistentData
