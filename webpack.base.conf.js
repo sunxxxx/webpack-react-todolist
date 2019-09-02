@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-//清除文件
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //提取css到单独文件 webpack4采用MiniCssExtractPlugin，ExtractTextPlugin已弃用
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
@@ -18,7 +16,8 @@ module.exports = {
     resolve:{
         alias:{
             '@src': path.resolve(__dirname, './src'),
-            '@css': path.resolve(__dirname,'./src/css')
+            '@css': path.resolve(__dirname,'./src/css'),
+            '@store': path.resolve(__dirname,'./src/store')
         },
         extensions: ['.js', '.jsx', 'css'],
     },
@@ -102,7 +101,6 @@ module.exports = {
                 removeAttributeQuotes: true // 移除属性的引号
             }
         }),
-        new CleanWebpackPlugin(), //不传参默认删除未使用资源
         // new ExtractTextPlugin('style.css'),
         new MiniCssExtractPlugin({
             filename: '[name].css', //filename 是指在你入口文件entry中引入生成出来的文件名
