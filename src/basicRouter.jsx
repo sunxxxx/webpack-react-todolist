@@ -5,7 +5,7 @@ import Projects from './projects';
 import Today from './today';
 import Memo from './memo';
 import memoInfo from './memoInfo';
-import HigherOrder from './HigherOrder';
+// import HigherOrder from './HigherOrder';
 
 
 class ScrollToTop extends React.Component {
@@ -78,7 +78,7 @@ function BasicRouter() {
               <Route strict path="/today" component={Today} />
               <Route exact path="/memo" component={Memo} />
               <Route path={["/memo/:id","/editMemo/:id"]} component={memoInfo} />
-              <Route path="/Higher-Order" component={HigherOrder} />
+              {/* <Route path="/Higher-Order" component={HigherOrder} />*/}
               {/* <Route path="/:test" component={Test} /> */}
               <Route path="/order/:direction(asc|desc)" component={ComponentWithRegex} />
               <Route path="/notfound" component={NotFound} />

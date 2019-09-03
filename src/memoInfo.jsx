@@ -9,7 +9,7 @@ class memoInfo extends React.Component{
         }
     }
 
-    componentWillMount(){
+    UNSAFE_componentWillMount(){
         this.setState({
             pathname:location.pathname.match(/^\/[^\/]*/g)[0].substr(1)
         })

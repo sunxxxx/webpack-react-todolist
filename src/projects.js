@@ -23,7 +23,7 @@ class App extends React.Component {
     };
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     const toDoList = window.localStorage.getItem('toDoList') || "[]";
     const projects = window.localStorage.getItem('projects') || "[]";
     const itemId = window.localStorage.getItem('itemId') || 0;
