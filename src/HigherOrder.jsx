@@ -1,39 +1,53 @@
-import React, { Component } from 'react'
- 
-function withPersistentData = (key) => (WrappedComponent) => {
-  return class extends Component {
+import React from 'react';
+import Modal from '@src/components/Modal/Modal';
 
+
+class PortalBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showModal: false};
     
-    componentWillMount() {
-      let data = localStorage.getItem(key);
-        this.setState({data});
-    }
- 
-    render() {
-      // 通过{...this.props} 把传递给当前组件的属性继续传递给被包装的组件WrappedComponent
-      return <WrappedComponent data={this.state.data} {...this.props} />
-    }
+    this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
   }
-}
- 
-class MyComponent2 extends Component {  
-  render() {
-    return <div>{this.props.data}</div>
-  }
- 
-  //省略其他逻辑...
-}
- 
-class MyComponent3 extends Component {  
-  render() {
-    return <div>{this.props.data}</div>
-  }
- 
-  //省略其他逻辑...
-}
- 
-const MyComponent2WithPersistentData = withPersistentData('data')(MyComponent2);
-const MyComponent3WithPersistentData = withPersistentData('name')(MyComponent3);
 
+  handleShow() {
+    this.setState({showModal: true});
+  }
+  
+  handleHide() {
+    this.setState({showModal: false});
+  }
 
-export default MyComponent3WithPersistentData
+  render() {
+    // Show a Modal on click.
+    // (In a real app, don't forget to use ARIA attributes
+    // for accessibility!)
+    const modal = this.state.showModal ? (
+      <Modal className="modal_bg">
+        <div className="modal">
+          <div className="modal_head">Add Memo</div>
+          <div className="modal_body">
+            <form>
+              <label>Title</label>
+              <input placeholder="title" />
+            </form>
+          </div>
+          <div className="modal_footer">
+            <button onClick={this.handleHide}>Hide modal</button>
+          </div>
+        </div>
+      </Modal>
+    ) : null;
+
+    return (
+      <div className="portal">
+        Portal
+        <button onClick={this.handleShow}>Show modal</button>
+        {modal}
+      </div>
+    );
+  }
+}
+
+export default PortalBox;

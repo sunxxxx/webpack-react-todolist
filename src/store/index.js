@@ -73,8 +73,6 @@ let unlistener = store.subscribe(()=>{ //用来添加一个变化监听器
 })
 
 store.dispatch(ADD_TODO);
-store.dispatch(ADD_TODO);
-store.dispatch(ADD_TODO);
 store.dispatch(LESS_TODO);
 
 unlistener()

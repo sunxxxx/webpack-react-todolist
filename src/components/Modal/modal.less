@@ -1,0 +1,59 @@
+@import '~@less/base.less';
+@import '~@less/theme.less';
+
+.modal_bg{
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #64646466;
+    .modal{
+        width: 500px;
+        height: 400px;
+        position: fixed;
+        top: calc(50% - 200px);
+        left: calc(50% - 250px);
+        background: #fff;
+        box-shadow: 0 0 10px 0px #ccc;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 2;
+        &::before{
+            content: '';
+            display: block;
+        }
+    }
+    .modal_head{
+        font-size: 20px;
+        margin-bottom: 30px
+    }
+    .modal_body{
+        height: 280px;
+    }
+    .modal_footer{
+        display: flex;
+        justify-content: space-between;
+        button{
+            padding: 4px 8px;
+            margin: 0 20px;
+            color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: @base-color;
+            font-size: 14px;
+            line-height: 2;
+            flex-grow:1;
+            cursor: pointer;
+            &:nth-child(2){
+                background-color: #ccc;
+            }
+        }
+    }
+}
+
+
+
+
+

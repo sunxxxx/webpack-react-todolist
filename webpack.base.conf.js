@@ -5,6 +5,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
+
 module.exports = {
     // mode: process.env.mode,
     entry: path.resolve(__dirname, './src/index.js'),
@@ -17,9 +18,11 @@ module.exports = {
         alias:{
             '@src': path.resolve(__dirname, './src'),
             '@css': path.resolve(__dirname,'./src/css'),
+            '@less': path.resolve(__dirname, './src/less'),
+            '@img': path.resolve(__dirname, './src/img'),
             '@store': path.resolve(__dirname,'./src/store')
         },
-        extensions: ['.js', '.jsx', 'css'],
+        extensions: ['.js', '.jsx', 'css','less'],
     },
     optimization: {
         splitChunks: {
@@ -45,7 +48,16 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-        　　 　　   "css-loader"
+        　　 　　    'css-loader',
+                   'less-loader'
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
                 ]
             },
             {

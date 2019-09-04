@@ -1,6 +1,6 @@
 import React from 'react';
 import '@css/App.css';
-import ListItem from './listItem'
+import ListItem from '@src/listItem'
 // import { thisExpression } from '@babel/types';
 
 
@@ -21,6 +21,12 @@ class App extends React.Component {
       dragIndex: 0,
       currentIndex:0
     };
+
+    this.delectAll = this.delectAll.bind(this);
+    this.changeAll = this.changeAll.bind(this);
+    this.changeActive = this.changeActive.bind(this);
+    this.changeCompleted = this.changeCompleted.bind(this);
+    this.addProject = this.addProject.bind(this)
   }
 
   UNSAFE_componentWillMount(){
@@ -322,7 +328,7 @@ class App extends React.Component {
                   <input className="add_project_input" placeholder="Add Your Project" onKeyDown={this.newProject.bind(this)} />
                 }
                 {!this.state.showAddInput &&
-                  <button onClick={this.addProject.bind(this)} className="add_project_btn">Add Project</button>
+                  <button onClick={this.addProject} className="add_project_btn">Add Project</button>
                 }
               </ul>
             </div>
@@ -347,12 +353,12 @@ class App extends React.Component {
                     }
 
                     { this.state.allChecked &&
-                    <button className="delect_btn" onClick={this.delectAll.bind(this)}>Delect All</button>
+                    <button className="delect_btn" onClick={this.delectAll}>Delect All</button>
                     }
                     <div className="btns right">
-                        <div className={this.state.activeLable === 0 ? "activeBtn":""} onClick={this.changeAll.bind(this)}>All</div>
-                        <div className={this.state.activeLable === 1 ? "activeBtn":""} onClick={this.changeActive.bind(this)}>Active</div>
-                        <div className={this.state.activeLable === 2 ? "activeBtn":""} onClick={this.changeCompleted.bind(this)}>Completed</div>
+                        <div className={this.state.activeLable === 0 ? "activeBtn":""} onClick={this.changeAll}>All</div>
+                        <div className={this.state.activeLable === 1 ? "activeBtn":""} onClick={this.changeActive}>Active</div>
+                        <div className={this.state.activeLable === 2 ? "activeBtn":""} onClick={this.changeCompleted}>Completed</div>
                     </div>
                 </footer>
                 }

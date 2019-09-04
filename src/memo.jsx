@@ -1,21 +1,26 @@
 import React from 'react';
 import { BrowserRouter,Link } from "react-router-dom";
 import '@css/App.css';
+import Modal from '@src/components/Modal/Modal';
 
 
 class Memo extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            addMemo: false
+            showModal: false
         }
+        this.handleShow = this.handleShow.bind(this);
+        this.handleHide = this.handleHide.bind(this);
     }
 
-    addMemo(){
-        this.setState({addMemo:true})
+    handleShow() {
+        this.setState({showModal: true});
     }
-
-    newMemo(){}
+    
+    handleHide() {
+        this.setState({showModal: false});
+    }
 
     render(){
         const data = [
@@ -56,6 +61,24 @@ class Memo extends React.Component{
                 method:'new Date().toDateString()'
             }
         ];
+
+        const modal = this.state.showModal ? (
+        <Modal className="modal_bg">
+            <div className="modal">
+                <div className="modal_head">Add Memo</div>
+                <div className="modal_body">
+                    <form>
+                        <label>Title</label>
+                        <input placeholder="title" />
+                    </form>
+                </div>
+                <div className="modal_footer">
+                    <button onClick={this.handleHide}>Done</button>
+                    <button onClick={this.handleHide}>Cancle</button>
+                </div>
+            </div>
+        </Modal>
+        ) : null;
         return(
             <div className="container">
                 <ol className="memo_content">
@@ -74,14 +97,9 @@ class Memo extends React.Component{
                         </div>
                     </li>
                 ))}
-                <button className="add_memo" onClick={this.addMemo.bind(this)}>Add New Memo</button>
+                <button className="add_memo" onClick={this.handleShow}>Add New Memo</button>
                 </ol>
-                {this.state.addMemo && 
-                    <div className="new_memo">
-                        <input value="add new memo" onChange={this.newMemo.bind(this)} />
-                    </div>
-                }
-               
+                {modal}
                 
             </div>
         )

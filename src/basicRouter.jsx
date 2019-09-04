@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink,withRouter,Redirect } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
-import Projects from './projects';
-import Today from './today';
-import Memo from './memo';
-import memoInfo from './memoInfo';
-// import HigherOrder from './HigherOrder';
+import Projects from '@src/projects';
+import Today from '@src/today';
+import Memo from '@src/memo';
+import memoInfo from '@src/memoInfo';
+import HigherOrder from '@src/HigherOrder';
 
 
 class ScrollToTop extends React.Component {
     componentDidUpdate(prevProps) {
-
+      console.log(prevProps)
     }
     render() {
         return this.props.children
@@ -21,7 +21,7 @@ withRouter(ScrollToTop);
 function NotFound({location}) {
   return (
     <div className="notfound" style={{}}> 
-      <img src={require('./img/notfound.jpg')} />
+      <img src={require('@img/notfound.jpg')} />
     </div>
     );
 }
@@ -78,7 +78,7 @@ function BasicRouter() {
               <Route strict path="/today" component={Today} />
               <Route exact path="/memo" component={Memo} />
               <Route path={["/memo/:id","/editMemo/:id"]} component={memoInfo} />
-              {/* <Route path="/Higher-Order" component={HigherOrder} />*/}
+              <Route path="/Higher-Order" component={HigherOrder} />
               {/* <Route path="/:test" component={Test} /> */}
               <Route path="/order/:direction(asc|desc)" component={ComponentWithRegex} />
               <Route path="/notfound" component={NotFound} />
